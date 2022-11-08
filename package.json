@@ -1,0 +1,18 @@
+{
+  "name": "gg.athlos.webview",
+  "version": "0.0.1",
+  "description": "TODO: Description of package",
+  "displayName": "Gfinity Athlos WebView",
+  "unity": "2021.3",
+  "changelogUrl": "https://gg.athlos/changelog.html",
+  "documentationUrl": "https://athlos.readme.io/docs",
+  "license": "See LICENSE.md",
+  "licenseUrl": "https://gg.athlos/license.html",
+  "samples": [
+    {
+      "displayName": "SDK Test Suite",
+      "description": "Provides simplistic calls to test SDK API calls",
+      "path": "Samples~/TestSuite"
+    }
+  ]
+}
