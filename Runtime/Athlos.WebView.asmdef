@@ -1,6 +1,6 @@
 {
-    "name": "Vuplex",
-    "rootNamespace": "Vuplex",
+    "name": "Athlos.WebView",
+    "rootNamespace": "Athlos.WebView",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
