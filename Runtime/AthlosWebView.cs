@@ -1,6 +1,5 @@
-//TODO [ATH-1562] License 
+//TODO [ATH-1562] License
 
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Athlos.WebView

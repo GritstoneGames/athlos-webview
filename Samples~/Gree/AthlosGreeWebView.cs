@@ -1,8 +1,7 @@
 //TODO [ATH-1562] License
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Athlos.WebView
 {  
@@ -22,31 +21,46 @@ namespace Athlos.WebView
       Desktop
     }
 
-    [Header("Gree WebView")]
     [SerializeField] private WebViewObject webView;
+    [Header("Initialisation Settings")]    
     [SerializeField] private bool transparent = false;
     [SerializeField] private bool zoom = true;
     [SerializeField] private string ua;
-    
-    [Header("Android")]
-    [SerializeField] private AndroidForceDarkMode forceDarkMode;
+    [Space(10)]
+    [SerializeField] private AndroidForceDarkMode androidForceDarkMode;
+    [Space(10)]
+    [SerializeField] private bool iOSEnableWKWebView = true;
+    [SerializeField] private IOSContentMode iOSContentMode;
+    [SerializeField] private bool iOSAllowLinkPreview = true;
+    [Space(10)]
+    [SerializeField] private bool editorSeparated;
 
-    [Header("iOS")]
-    [SerializeField] private bool enableWKWebView = true;
-    [SerializeField] private IOSContentMode contentMode;
-    [SerializeField] private bool allowLinkPreview = true;
+    public UnityEvent<string> OnCallback { get; private set; }
+    public UnityEvent<string> OnError { get; private set; }
+    public UnityEvent<string> OnHTTPError { get; private set; }
+    public UnityEvent<string> OnStarted { get; private set; }
+    public UnityEvent<string> OnLoaded { get; private set; }
+    public UnityEvent<string> OnHooked { get; private set; }
 
-    [Header("Editor")]
-    [SerializeField] private bool separated;
+    private bool inited;
 
     private void Awake()
     {
+      inited = false;
+
+      OnCallback = new UnityEvent<string>();
+      OnError = new UnityEvent<string>();
+      OnHTTPError = new UnityEvent<string>();
+      OnStarted = new UnityEvent<string>();
+      OnLoaded = new UnityEvent<string>();
+      OnHooked = new UnityEvent<string>();
+
       webView.Init(
-        OnCallback, OnError, OnHTTPError, OnLoaded, OnStarted, OnHooked,  //callbacks
-        transparent, zoom, ua,                                            //properties
-        (int)forceDarkMode,                                               //android
-        enableWKWebView, (int)contentMode, allowLinkPreview,              //ios
-        separated);                                                       //editor
+        _OnCallback, _OnError, _OnHTTPError, _OnLoaded, _OnStarted, _OnHooked,  //callbacks
+        transparent, zoom, ua,                                                  //properties
+        (int)androidForceDarkMode,                                              //android
+        iOSEnableWKWebView, (int)iOSContentMode, iOSAllowLinkPreview,           //ios
+        editorSeparated);                                                       //editor
     }
 
     private void Start()
@@ -55,35 +69,39 @@ namespace Athlos.WebView
       webView.SetVisibility(true);
     }
 
-    private void OnCallback(string message)
+    private void _OnCallback(string message)
     {
-      Debug.LogFormat("OnCallback: {0}", message);
+      OnCallback?.Invoke(message);
     }
 
-    private void OnError(string message)
+    private void _OnError(string message)
     {
-      Debug.LogErrorFormat("OnError: {0}", message);
+      OnError?.Invoke(message);
     }
 
-    private void OnHTTPError(string message)
+    private void _OnHTTPError(string message)
     {
-      Debug.LogErrorFormat("OnHTTPError: {0}", message);
+      OnHTTPError?.Invoke(message);
     }
 
-    private void OnStarted(string message)
+    private void _OnStarted(string message)
     {
-      Debug.LogFormat("OnStarted: {0}", message);
-      webView.EvaluateJS(AuthenticationScript);
+      if (!inited)
+      {
+        webView.EvaluateJS(AuthenticationScript);
+        inited = true;
+      }
+      OnStarted?.Invoke(message);
     }
 
-    private void OnLoaded(string message)
+    private void _OnLoaded(string message)
     {
-      Debug.LogFormat("OnLoaded: {0}", message);
+      OnLoaded?.Invoke(message);
     }
 
-    private void OnHooked(string message)
+    private void _OnHooked(string message)
     {
-      Debug.LogFormat("OnHooked: {0}", message);
+      OnHooked?.Invoke(message);
     }
   }
 }
