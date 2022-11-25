@@ -42,6 +42,8 @@ namespace Athlos.WebView
     public UnityEvent<string> OnLoaded { get; private set; }
     public UnityEvent<string> OnHooked { get; private set; }
 
+    public WebViewObject WebView { get { return webView; } }
+
     private bool inited;
 
     private void Awake()

@@ -13,6 +13,8 @@ namespace Athlos.WebView
     [SerializeField] private BaseWebViewPrefab webView;
     [SerializeField] private bool enableConsoleLogging;
 
+    public BaseWebViewPrefab WebView { get { return webView; } }
+
     private void Awake()
     {
       webView.InitialUrl = InitialUrl;
@@ -44,14 +46,6 @@ namespace Athlos.WebView
     private void OnWebViewMessageEmitted(object sender, EventArgs<string> e)
     {
       Debug.Log(e.Value);
-    }
-
-    public BaseWebViewPrefab WebView
-    {
-      get
-      {
-        return webView;
-      }
     }
   }
 }
