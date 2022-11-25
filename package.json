@@ -10,9 +10,14 @@
   "licenseUrl": "https://gg.athlos/license.html",
   "samples": [
     {
-      "displayName": "Vuplex WebView",
+      "displayName": "Vuplex WebView (Recommended)",
       "description": "Athlos API & Vuplex WebView compatibility",
       "path": "Samples~/Vuplex"
+    },
+    {
+      "displayName": "Gree WebView",
+      "description": "Athlos API & Gree WebView compatibility",
+      "path": "Samples~/Gree"
     }
   ]
 }
