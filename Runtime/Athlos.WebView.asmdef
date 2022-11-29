@@ -1,7 +1,12 @@
 {
     "name": "Athlos.WebView",
-    "rootNamespace": "Athlos.WebView",
-    "references": [],
+    "rootNamespace": "Athlos",
+    "references": [
+        "Athlos.Common"
+    ],
+    "dependencies": {
+        "Athlos.Common": "0.0.1"
+    },
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

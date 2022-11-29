@@ -1,5 +1,6 @@
 //TODO [ATH-1562] License
 
+using Athlos.HTTP;
 using UnityEngine;
 
 namespace Athlos.WebView
@@ -14,11 +15,7 @@ namespace Athlos.WebView
     }
 
     [Header("Configuration")]
-    [SerializeField] private string tenantName;
     [SerializeField] private Scope scope;
-
-    private string jwt;
-    public string JWT { set { jwt = value; } }
 
     protected string InitialUrl
     {
@@ -26,10 +23,10 @@ namespace Athlos.WebView
       {
         return 
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        scope == Scope.ProofOfConcept ? $"https://test.athlos.gg?tenant={tenantName}" :
+        scope == Scope.ProofOfConcept ? $"https://test.athlos.gg?tenant={AthlosHTTP.Tenant}" :
 #endif
-        scope == Scope.StagingInApp ?   $"https://staging-inapp.athlos.gg?tenant={tenantName}" :
-                                        $"https://ingame.gfinity.gg?tenant={tenantName}";
+        scope == Scope.StagingInApp ?   $"https://staging-inapp.athlos.gg?tenant={AthlosHTTP.Tenant}" :
+                                        $"https://ingame.gfinity.gg?tenant={AthlosHTTP.Tenant}";
       }
     }
 
@@ -37,11 +34,11 @@ namespace Athlos.WebView
     {
       get
       {
-        Debug.Assert(!string.IsNullOrEmpty(jwt), "JWT missing. Fetch a JWT and assign it to your webview via the JWT property");
-        return jwt == null ? null : $@"
+        Debug.Assert(!string.IsNullOrEmpty(AthlosHTTP.JWT), "JWT missing. Fetch a JWT and assign it to your webview via the JWT property");
+        return AthlosHTTP.JWT == null ? null : $@"
 window.__engage_sync = () => {{
     return {{
-        ""jwt"": ""{jwt}""
+        ""jwt"": ""{AthlosHTTP.JWT}""
     }}
 }}";
       }
