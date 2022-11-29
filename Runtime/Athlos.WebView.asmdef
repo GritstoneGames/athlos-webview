@@ -5,7 +5,7 @@
         "Athlos.Common"
     ],
     "dependencies": {
-        "Athlos.Common": "https://bitbucket.org/gritstone-games/athlos-unity-common-api.git#MatchRestructure"
+        "Athlos.Common": "0.0.1"
     },
     "includePlatforms": [],
     "excludePlatforms": [],
