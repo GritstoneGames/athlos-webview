@@ -49,4 +49,5 @@ Thumbs.db
 *.wmv
 
 Samples~/**/*.meta
-
+Samples
+Samples.meta
