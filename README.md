@@ -1,1 +1,1 @@
-TODO link to online documentaton
+[View the full Athlos documentation](https://athlos.readme.io/docs)
