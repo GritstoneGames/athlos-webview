@@ -1,7 +1,9 @@
 //TODO [ATH-1562] License
 
 using Athlos.HTTP;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Athlos.WebView
 {
@@ -16,6 +18,9 @@ namespace Athlos.WebView
 
     [Header("Configuration")]
     [SerializeField] private Scope scope;
+
+    public bool PageLoaded { get; protected set; }
+    private UnityEvent<string> onMessageReceived;
 
     protected string InitialUrl
     {
@@ -42,6 +47,37 @@ window.__engage_sync = () => {{
     }}
 }}";
       }
+    }
+
+    private void Awake()
+    {
+      PageLoaded = false;
+    }
+
+    private void OnDestroy()
+    {
+      onMessageReceived = null;
+    }
+
+    public abstract void ExecuteJavascript(string javascript);
+      
+    public void AddMessageReceivedListener(UnityAction<string> onMessageReceived)
+    {
+      if (this.onMessageReceived == null)
+      {
+        this.onMessageReceived = new UnityEvent<string>();
+      }
+      this.onMessageReceived.AddListener(onMessageReceived);
+    }
+
+    public void RemoveMessageReceivedListener(UnityAction<string> onMessageReceived)
+    {
+      this.onMessageReceived?.RemoveListener(onMessageReceived);
+    }
+
+    protected void OnMessageReceived(string message)
+    {
+      onMessageReceived?.Invoke(message);
     }
   }
 }

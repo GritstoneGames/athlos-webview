@@ -41,11 +41,26 @@ namespace Athlos.WebView
       webView.WebView.MessageEmitted += OnWebViewMessageEmitted;
       webView.WebView.PageLoadScripts.Add(authenticationScript);
       await webView.WebView.WaitForNextPageLoadToFinish();
+      PageLoaded = true;
+      webView.WebView.LoadProgressChanged += OnLoadProgressChanged;
+    }
+
+    private void OnLoadProgressChanged(object sender, ProgressChangedEventArgs e)
+    {
+      PageLoaded = e.Type == ProgressChangeType.Finished;      
     }
 
     private void OnWebViewMessageEmitted(object sender, EventArgs<string> e)
     {
-      Debug.Log(e.Value);
+      OnMessageReceived(e.Value);
+    }
+
+    public override void ExecuteJavascript(string javascript)
+    {
+      if (PageLoaded)
+      {
+        webView.WebView.ExecuteJavaScript(javascript);
+      }
     }
   }
 }

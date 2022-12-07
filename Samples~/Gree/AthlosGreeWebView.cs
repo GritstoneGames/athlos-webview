@@ -35,7 +35,6 @@ namespace Athlos.WebView
     [Space(10)]
     [SerializeField] private bool editorSeparated;
 
-    public UnityEvent<string> OnCallback { get; private set; }
     public UnityEvent<string> OnError { get; private set; }
     public UnityEvent<string> OnHTTPError { get; private set; }
     public UnityEvent<string> OnStarted { get; private set; }
@@ -50,7 +49,6 @@ namespace Athlos.WebView
     {
       inited = false;
 
-      OnCallback = new UnityEvent<string>();
       OnError = new UnityEvent<string>();
       OnHTTPError = new UnityEvent<string>();
       OnStarted = new UnityEvent<string>();
@@ -73,7 +71,7 @@ namespace Athlos.WebView
 
     private void _OnCallback(string message)
     {
-      OnCallback?.Invoke(message);
+      OnMessageReceived(message);
     }
 
     private void _OnError(string message)
@@ -93,17 +91,27 @@ namespace Athlos.WebView
         webView.EvaluateJS(AuthenticationScript);
         inited = true;
       }
+      PageLoaded = false;
       OnStarted?.Invoke(message);
     }
 
     private void _OnLoaded(string message)
     {
+      PageLoaded = true;
       OnLoaded?.Invoke(message);
     }
 
     private void _OnHooked(string message)
     {
       OnHooked?.Invoke(message);
+    }
+
+    public override void ExecuteJavascript(string javascript)
+    {
+      if (PageLoaded)
+      {
+        webView.EvaluateJS(javascript);
+      }
     }
   }
 }
