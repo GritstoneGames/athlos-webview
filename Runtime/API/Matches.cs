@@ -1,11 +1,12 @@
 //TODO [ATH-1562] License
 
 using Athlos.Models.Client.Matches;
+using Athlos.API.Common.Matches;
 using System;
 
-namespace Athlos.API.Client
+namespace Athlos.API.WebView
 {
-  public class AthlosClientAPI
+  public partial class AthlosClientAPI
   {
     public static void ReportMatchResult(Match match, Action onSuccess, Action<AthlosError[]> onFail)
     {
