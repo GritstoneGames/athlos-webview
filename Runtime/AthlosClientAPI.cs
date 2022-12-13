@@ -1,6 +1,5 @@
 //TODO [ATH-1562] License
 
-using Athlos.Models.Common.Matches;
 using Athlos.Models.Client.Matches;
 using System;
 
