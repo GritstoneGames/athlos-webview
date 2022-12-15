@@ -7,7 +7,7 @@ namespace Athlos.API.WebView
 {
   public partial class AthlosClientAPI
   {
-    public static void ReportMatchResult(MatchResult match, Action onSuccess, Action<AthlosError[]> onFail)
+    public static void ReportMatchResult(MatchResult match, Action onSuccess, Action<Error[]> onFail)
     {
       AthlosAPI.Patch(AthlosAPI.MatchesCategory, match.Url, match, onSuccess, onFail);
     }
