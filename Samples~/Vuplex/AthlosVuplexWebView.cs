@@ -15,8 +15,11 @@ namespace Athlos.WebView
 
     public BaseWebViewPrefab WebView { get { return webView; } }
 
+    public bool Initialized { get; private set; }
+
     private void Awake()
     {
+      Initialized = false;
       webView.InitialUrl = InitialUrl;
       webView.Initialized += OnWebviewInitialized;
     }
@@ -28,6 +31,7 @@ namespace Athlos.WebView
 
     private async void OnWebviewInitialized(object sender, EventArgs e)
     {
+      Initialized = true;
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
       webView.LogConsoleMessages = enableConsoleLogging;
 #endif
