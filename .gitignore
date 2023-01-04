@@ -51,3 +51,5 @@ Thumbs.db
 Samples~/**/*.meta
 Samples
 Samples.meta
+
+Runtime/API/obj
