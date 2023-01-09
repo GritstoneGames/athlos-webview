@@ -38,7 +38,6 @@ namespace Athlos.WebView
     public UnityEvent<string> OnError { get; private set; }
     public UnityEvent<string> OnHTTPError { get; private set; }
     public UnityEvent<string> OnStarted { get; private set; }
-    public UnityEvent<string> OnLoaded { get; private set; }
     public UnityEvent<string> OnHooked { get; private set; }
 
     public WebViewObject WebView { get { return webView; } }
@@ -52,7 +51,6 @@ namespace Athlos.WebView
       OnError = new UnityEvent<string>();
       OnHTTPError = new UnityEvent<string>();
       OnStarted = new UnityEvent<string>();
-      OnLoaded = new UnityEvent<string>();
       OnHooked = new UnityEvent<string>();
 
       webView.Init(
@@ -98,7 +96,7 @@ namespace Athlos.WebView
     private void _OnLoaded(string message)
     {
       PageLoaded = true;
-      OnLoaded?.Invoke(message);
+      OnPageLoaded(message);
     }
 
     private void _OnHooked(string message)

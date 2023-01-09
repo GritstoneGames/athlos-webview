@@ -44,14 +44,19 @@ namespace Athlos.WebView
       }
       webView.WebView.MessageEmitted += OnWebViewMessageEmitted;
       webView.WebView.PageLoadScripts.Add(authenticationScript);
-      await webView.WebView.WaitForNextPageLoadToFinish();
+      await webView.WebView.WaitForNextPageLoadToFinish();      
       PageLoaded = true;
+      OnPageLoaded(null);
       webView.WebView.LoadProgressChanged += OnLoadProgressChanged;
     }
 
     private void OnLoadProgressChanged(object sender, ProgressChangedEventArgs e)
     {
-      PageLoaded = e.Type == ProgressChangeType.Finished;      
+      PageLoaded = e.Type == ProgressChangeType.Finished;
+      if (PageLoaded)
+      {
+        OnPageLoaded(null);
+      }
     }
 
     private void OnWebViewMessageEmitted(object sender, EventArgs<string> e)

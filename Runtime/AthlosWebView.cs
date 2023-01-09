@@ -56,6 +56,7 @@ namespace Athlos.WebView
     [SerializeField] private InitialColors initialColors;
 
     public bool PageLoaded { get; protected set; }
+    private UnityEvent<string> onPageLoaded;
     private UnityEvent<string> onMessageReceived;
 
     protected string InitialUrl
@@ -97,6 +98,25 @@ window.__engage_sync = () => {{
     }
 
     public abstract void ExecuteJavascript(string javascript);
+
+    public void AddOnPageLoadedListener(UnityAction<string> onPageLoaded)
+    {
+      if (this.onPageLoaded == null)
+      {
+        this.onPageLoaded = new UnityEvent<string>();
+      }
+      this.onPageLoaded.AddListener(onPageLoaded);
+    }
+
+    public void RemoveOnPageLoadedListener(UnityAction<string> onPageLoaded)
+    {
+      this.onPageLoaded?.RemoveListener(onPageLoaded);
+    }
+
+    protected void OnPageLoaded(string message)
+    {
+      onPageLoaded?.Invoke(message);
+    }
       
     public void AddMessageReceivedListener(UnityAction<string> onMessageReceived)
     {
