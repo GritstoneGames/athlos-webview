@@ -87,7 +87,7 @@ window.__engage_sync = () => {{
       }
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
       PageLoaded = false;
     }

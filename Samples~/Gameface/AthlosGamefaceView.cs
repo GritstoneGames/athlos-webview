@@ -20,8 +20,9 @@ namespace Athlos.WebView
     private List<Delegate> events;
     private List<Delegate> bindings;
 
-    private void Awake()
+    protected override void Awake()
     {
+      base.Awake();
       view.Page = InitialUrl;
       readyForBindings = false;
       view.Listener.ReadyForBindings += OnReadyForBindings;
@@ -41,7 +42,7 @@ namespace Athlos.WebView
       }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
       view.View.AddInitialScript(AuthenticationScript);
     }

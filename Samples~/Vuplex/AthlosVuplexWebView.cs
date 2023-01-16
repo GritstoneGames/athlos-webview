@@ -17,8 +17,9 @@ namespace Athlos.WebView
 
     public bool Initialized { get; private set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+      base.Awake();
       Initialized = false;
       webView.InitialUrl = InitialUrl;
       webView.Initialized += OnWebviewInitialized;

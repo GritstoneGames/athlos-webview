@@ -45,8 +45,9 @@ namespace Athlos.WebView
 
     private bool inited;
 
-    private void Awake()
+    protected override void Awake()
     {
+      base.Awake();
       inited = false;
 
       OnError = new UnityEvent<string>();
@@ -62,7 +63,7 @@ namespace Athlos.WebView
         editorSeparated);                                                       //editor
     }
 
-    private void Start()
+    protected virtual void Start()
     {
       webView.LoadURL(InitialUrl);
       webView.SetVisibility(true);
