@@ -9,11 +9,16 @@
   "license": "See LICENSE.md",
   "licenseUrl": "https://gg.athlos/license.html",
   "samples": [
-  {
+    {
+      "displayName": "Gameface",
+      "description": "Athlos API & Gameface View compatibility",
+      "path": "Samples~/Gameface"
+    },    
+    {
       "displayName": "Gree",
       "description": "Athlos API & Gree WebView compatibility",
       "path": "Samples~/Gree"
-    },
+    },    
     {
       "displayName": "Vuplex",
       "description": "Athlos API & Vuplex WebView compatibility",
