@@ -7,7 +7,7 @@ using Vuplex.WebView;
 
 namespace Athlos.WebView
 {
-  public sealed class AthlosVuplexWebView : AthlosWebView
+  public class AthlosVuplexWebView : AthlosWebView
   {
     [Header("Vuplex WebView")]
     [SerializeField] private BaseWebViewPrefab webView;
