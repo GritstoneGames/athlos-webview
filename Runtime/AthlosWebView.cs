@@ -52,7 +52,7 @@ namespace Athlos.WebView
     }
 
     [Header("Configuration")]
-    [SerializeField] private Scope scope;
+    [SerializeField] protected Scope scope;
     [SerializeField] private InitialColors initialColors;
 
     public bool PageLoaded { get; protected set; }
