@@ -13,6 +13,7 @@ namespace Athlos.WebView
       public System.Delegate function;
     }
 
+    [Header("Coherent Labs Gameface")]
     [SerializeField] private cohtml.CohtmlView view;
 
     private bool readyForBindings;

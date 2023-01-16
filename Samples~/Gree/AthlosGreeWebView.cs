@@ -21,6 +21,7 @@ namespace Athlos.WebView
       Desktop
     }
 
+    [Header("Gree WebView")]
     [SerializeField] private WebViewObject webView;
     [Header("Initialisation Settings")]    
     [SerializeField] private bool transparent = false;
