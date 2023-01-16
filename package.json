@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A helpful plugin for integrating popular webviews for use with the Athlos API. Import a sample for an officially supported webview and customise as necessary.",
   "displayName": "Gfinity Athlos WebView",
+  "author": {
+    "url": "http://gg.ahtlos",
+    "name": "Athlos"
+  },
   "unity": "2021.3",
   "changelogUrl": "https://gg.athlos/changelog.html",
   "documentationUrl": "https://athlos.readme.io/docs",
