@@ -47,7 +47,8 @@ namespace Athlos.WebView
       view.View.AddInitialScript(AuthenticationScript);
     }
 
-    public cohtml.Net.View View { get { return view.View; } }
+    public cohtml.CohtmlView View { get { return view; } }
+    public cohtml.Net.View NetView { get { return view.View; } }
 
     public override void ExecuteJavascript(string javascript)
     {
