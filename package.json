@@ -14,11 +14,6 @@
   "licenseUrl": "https://gg.athlos/license.html",
   "samples": [
     {
-      "displayName": "Gameface",
-      "description": "Athlos API & Gameface View compatibility",
-      "path": "Samples~/Gameface"
-    },    
-    {
       "displayName": "Gree",
       "description": "Athlos API & Gree WebView compatibility",
       "path": "Samples~/Gree"
@@ -27,6 +22,13 @@
       "displayName": "Vuplex",
       "description": "Athlos API & Vuplex WebView compatibility",
       "path": "Samples~/Vuplex"
+    }
+  ],
+  "_ignoreSamples": [
+  	{
+      "displayName": "Gameface (Experimental)",
+      "description": "Athlos API & Gameface View compatibility. NOTE: This is under development and is not fully tested",
+      "path": "Samples~/Gameface"
     }
   ]
 }

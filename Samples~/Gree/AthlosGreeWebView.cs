@@ -27,12 +27,14 @@ namespace Athlos.WebView
     [SerializeField] private bool transparent = false;
     [SerializeField] private bool zoom = true;
     [SerializeField] private string ua;
+    [SerializeField] private int roundedRadius = 0;
     [Space(10)]
     [SerializeField] private AndroidForceDarkMode androidForceDarkMode;
     [Space(10)]
     [SerializeField] private bool iOSEnableWKWebView = true;
     [SerializeField] private IOSContentMode iOSContentMode;
     [SerializeField] private bool iOSAllowLinkPreview = true;
+    [SerializeField] private bool iOSAllowBackForwardGestures = true;
     [Space(10)]
     [SerializeField] private bool editorSeparated;
 
@@ -56,11 +58,11 @@ namespace Athlos.WebView
       OnHooked = new UnityEvent<string>();
 
       webView.Init(
-        _OnCallback, _OnError, _OnHTTPError, _OnLoaded, _OnStarted, _OnHooked,  //callbacks
-        transparent, zoom, ua,                                                  //properties
-        (int)androidForceDarkMode,                                              //android
-        iOSEnableWKWebView, (int)iOSContentMode, iOSAllowLinkPreview,           //ios
-        editorSeparated);                                                       //editor
+        _OnCallback, _OnError, _OnHTTPError, _OnLoaded, _OnStarted, _OnHooked,                      //callbacks
+        transparent, zoom, ua, roundedRadius,                                                       //properties
+        (int)androidForceDarkMode,                                                                  //android
+        iOSEnableWKWebView, (int)iOSContentMode, iOSAllowLinkPreview, iOSAllowBackForwardGestures,  //ios
+        editorSeparated);                                                                           //editor
     }
 
     protected virtual void Start()
