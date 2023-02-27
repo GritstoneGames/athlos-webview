@@ -7,9 +7,6 @@
     "url": "http://gg.athlos",
     "name": "Athlos"
   },
-  "dependencies":{
-  	"https://bitbucket.org/athlosgg/athlos-unity-common-api.git": "0.0.1"
-  },
   "unity": "2021.3",
   "changelogUrl": "https://gg.athlos/changelog.html",
   "documentationUrl": "https://athlos.readme.io/docs",
