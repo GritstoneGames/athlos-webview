@@ -8,7 +8,7 @@
     "name": "Athlos"
   },
   "dependencies":{
-  	"gg.athlos.common": "https://bitbucket.org/athlosgg/athlos-unity-common-api.git"
+  	"https://bitbucket.org/athlosgg/athlos-unity-common-api.git": "0.0.1"
   },
   "unity": "2021.3",
   "changelogUrl": "https://gg.athlos/changelog.html",
