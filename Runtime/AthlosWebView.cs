@@ -96,7 +96,7 @@ namespace Athlos.WebView
       {
         Debug.Assert(!string.IsNullOrEmpty(AthlosHTTP.JWT), "JWT missing. Fetch a JWT and assign it to your webview via the JWT property");
         return AthlosHTTP.JWT == null ? null : $@"
-window.__engage_sync = () => {{
+window.__athlos_sync = () => {{
     return {{
         ""jwt"": ""{AthlosHTTP.JWT}""
     }}
