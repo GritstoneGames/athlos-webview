@@ -2,7 +2,7 @@
   "name": "gg.athlos.webview",
   "version": "0.0.1",
   "description": "A helpful plugin for integrating popular webviews for use with the Athlos service. Import a sample for an officially supported webview and customise as necessary.",
-  "displayName": "Gfinity Athlos WebView",
+  "displayName": "Athlos WebView API",
   "author": {
     "url": "http://gg.athlos",
     "name": "Athlos"
