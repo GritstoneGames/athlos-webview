@@ -81,12 +81,28 @@ namespace Athlos.WebView
       get
       {
         string initialColorsParam = initialColors.enabled ? $"&bg={initialColors.BackgroundHex}&spinner={initialColors.SpinnerHex}" : "";
-        return 
+        string scopeString = null;
+        switch (scope)
+        {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        scope == Scope.ProofOfConcept ? $"https://test.athlos.gg?tenant={AthlosHTTP.Tenant}{initialColorsParam}" :
+          case Scope.ProofOfConcept:
+          {
+            scopeString = "test";
+            break;
+          }
 #endif
-        scope == Scope.StagingInApp ?   $"https://staging-inapp.athlos.gg?tenant={AthlosHTTP.Tenant}{initialColorsParam}" :
-                                        $"https://ingame.gfinity.gg?tenant={AthlosHTTP.Tenant}{initialColorsParam}";
+          case Scope.StagingInApp:
+          {
+            scopeString = "staging-inapp";
+            break;
+          }
+          case Scope.Release:
+          {
+            scopeString = "inapp";
+            break;
+          }
+        }
+        return $"https://{scopeString}.athlos.gg?tenant={AthlosHTTP.Tenant}{initialColorsParam}";
       }
     }
 
