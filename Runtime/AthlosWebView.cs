@@ -34,7 +34,7 @@ namespace Athlos.WebView
     }
 
     [Serializable]
-    struct InitialColors
+    protected struct InitialColors
     {
       private const string HexFormat = "x2";
 
@@ -70,17 +70,16 @@ namespace Athlos.WebView
 
     [Header("Configuration")]
     [SerializeField] protected Scope scope;
-    [SerializeField] private InitialColors initialColors;
+    [SerializeField] protected InitialColors initialColors;
 
     public bool PageLoaded { get; protected set; }
     private UnityEvent<string> onPageLoaded;
     private UnityEvent<string> onMessageReceived;
 
-    protected string InitialUrl
+    protected virtual string BaseUrl
     {
       get
       {
-        string initialColorsParam = initialColors.enabled ? $"&bg={initialColors.BackgroundHex}&spinner={initialColors.SpinnerHex}" : "";
         string scopeString = null;
         switch (scope)
         {
@@ -102,7 +101,16 @@ namespace Athlos.WebView
             break;
           }
         }
-        return $"https://{scopeString}.athlos.gg?tenant={AthlosHTTP.Tenant}{initialColorsParam}";
+        return $"https://{scopeString}.athlos.gg";
+      }
+    }
+
+    protected virtual string InitialUrl
+    {
+      get
+      {
+        string initialColorsParam = initialColors.enabled ? $"&bg={initialColors.BackgroundHex}&spinner={initialColors.SpinnerHex}" : "";
+        return $"{BaseUrl}?tenant={AthlosHTTP.Tenant}{initialColorsParam}";
       }
     }
 
