@@ -34,6 +34,14 @@ namespace Athlos.WebView
 
     public bool Initialized { get; private set; }
 
+    public override string CurrentUrl
+    {
+      get
+      {
+        return webView.WebView.Url;
+      }
+    }
+
     protected override void Awake()
     {
       base.Awake();

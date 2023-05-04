@@ -64,6 +64,15 @@ namespace Athlos.WebView
 
     private bool inited;
 
+    public override string CurrentUrl
+    {
+      get
+      {
+        return currentUrl;
+      }
+    }
+    private string currentUrl;
+
     protected override void Awake()
     {
       base.Awake();
@@ -116,6 +125,7 @@ namespace Athlos.WebView
 
     private void _OnLoaded(string message)
     {
+      currentUrl = message;
       PageLoaded = true;
       OnPageLoaded(message);
     }

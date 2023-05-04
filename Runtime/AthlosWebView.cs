@@ -114,6 +114,8 @@ namespace Athlos.WebView
       }
     }
 
+    public abstract string CurrentUrl { get; }
+
     protected string AuthenticationScript
     {
       get
