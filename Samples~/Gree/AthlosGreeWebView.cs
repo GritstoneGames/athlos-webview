@@ -59,6 +59,7 @@ namespace Athlos.WebView
     public UnityEvent<string> OnHTTPError { get; private set; }
     public UnityEvent<string> OnStarted { get; private set; }
     public UnityEvent<string> OnHooked { get; private set; }
+    public UnityEvent<string> OnCookies { get; private set; }
 
     public WebViewObject WebView { get { return webView; } }
 
@@ -82,9 +83,10 @@ namespace Athlos.WebView
       OnHTTPError = new UnityEvent<string>();
       OnStarted = new UnityEvent<string>();
       OnHooked = new UnityEvent<string>();
+      OnCookies = new UnityEvent<string>();
 
       webView.Init(
-        _OnCallback, _OnError, _OnHTTPError, _OnLoaded, _OnStarted, _OnHooked,                      //callbacks
+        _OnCallback, _OnError, _OnHTTPError, _OnLoaded, _OnStarted, _OnHooked, _OnCookies,          //callbacks
         transparent, zoom, ua, roundedRadius,                                                       //properties
         (int)androidForceDarkMode,                                                                  //android
         iOSEnableWKWebView, (int)iOSContentMode, iOSAllowLinkPreview, iOSAllowBackForwardGestures,  //ios
@@ -133,6 +135,11 @@ namespace Athlos.WebView
     private void _OnHooked(string message)
     {
       OnHooked?.Invoke(message);
+    }
+
+    private void _OnCookies(string message)
+    {
+      OnCookies?.Invoke(message);
     }
 
     public override void ExecuteJavascript(string javascript)
