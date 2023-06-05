@@ -18,6 +18,7 @@
  */
 
 using Athlos.HTTP;
+using Athlos.API.WebView;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -121,7 +122,7 @@ namespace Athlos.WebView
       get
       {
         Debug.Assert(!string.IsNullOrEmpty(AthlosHTTP.JWT), "JWT missing. Fetch a JWT and assign it to your webview via the JWT property");
-        Debug.Assert(AthlosHTTP.Authorized, $"JWT is either missing or has expired (time remaining: {AthlosHTTP.JWTRemainingTime.Seconds}s");
+        Debug.Assert(AthlosWebViewAPI.Authenticated, $"JWT is either missing or has expired (time remaining: {AthlosHTTP.JWTRemainingTime.Seconds}s");
         return AthlosHTTP.JWT == null ? null : $@"
 window.__athlos_auth = () => {{
     return {{

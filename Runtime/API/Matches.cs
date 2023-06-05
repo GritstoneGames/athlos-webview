@@ -21,7 +21,7 @@ using System;
 
 namespace Athlos.API.WebView
 {
-  public partial class AthlosClientAPI
+  public partial class AthlosWebViewAPI
   {
     public class MatchResult
     {
@@ -43,7 +43,7 @@ namespace Athlos.API.WebView
 
     public static void ReportMatchResult(MatchResult match, Action onSuccess, Action<Error[]> onFail)
     {
-      AthlosAPI.Patch(AthlosAPI.MatchesCategory, Models.Common.Matches.MatchResult.Url(match.MatchSeriesId, match.MatchNumber), match.Result, onSuccess, onFail);
+      AthlosAPI.Patch(AthlosAPI.MatchesCategory, Models.Common.Matches.MatchResult.Url(match.MatchSeriesId, match.MatchNumber), Authentication, match.Result, onSuccess, onFail);
     }
   }
 }
