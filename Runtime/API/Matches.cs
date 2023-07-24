@@ -1,20 +1,20 @@
 /*************************************************************************
  * 
- * GFINITY CONFIDENTIAL
+ * ATHLOS GAME TECHNOLOGIES LTD. CONFIDENTIAL
  * __________________
  * 
- *  [2023] Gfinity PLC
+ *  [2023] Athlos Game Technologies Ltd.
  *  All Rights Reserved.
  * 
  * NOTICE:  All information contained herein is, and remains
- * the property of Gfinity PLC and its suppliers,
+ * the property of Athlos Game Technologies Ltd. and its suppliers,
  * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Gfinity PLC
+ * herein are proprietary to Athlos Game Technologies Ltd.
  * and its suppliers and may be covered by U.S. and Foreign Patents,
  * patents in process, and are protected by trade secret or copyright law.
  * Dissemination of this information or reproduction of this material
  * is strictly forbidden unless prior written permission is obtained
- * from Gfinity PLC.
+ * from Athlos Game Technologies Ltd.
  */
 
 using System;
