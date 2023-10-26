@@ -144,18 +144,18 @@ window.__athlos_auth = () => {{
 
     public abstract void ExecuteJavascript(string javascript);
 
-    public void AddOnPageLoadedListener(UnityAction<string> onPageLoaded)
+    public void AddOnPageLoadedListener(UnityAction<string> onLoaded)
     {
       if (this.onPageLoaded == null)
       {
         this.onPageLoaded = new UnityEvent<string>();
       }
-      this.onPageLoaded.AddListener(onPageLoaded);
+      this.onPageLoaded.AddListener(onLoaded);
     }
 
-    public void RemoveOnPageLoadedListener(UnityAction<string> onPageLoaded)
+    public void RemoveOnPageLoadedListener(UnityAction<string> onLoaded)
     {
-      this.onPageLoaded?.RemoveListener(onPageLoaded);
+      this.onPageLoaded?.RemoveListener(onLoaded);
     }
 
     protected void OnPageLoaded(string message)
@@ -163,18 +163,18 @@ window.__athlos_auth = () => {{
       onPageLoaded?.Invoke(message);
     }
       
-    public void AddMessageReceivedListener(UnityAction<string> onMessageReceived)
+    public void AddMessageReceivedListener(UnityAction<string> onReceived)
     {
       if (this.onMessageReceived == null)
       {
         this.onMessageReceived = new UnityEvent<string>();
       }
-      this.onMessageReceived.AddListener(onMessageReceived);
+      this.onMessageReceived.AddListener(onReceived);
     }
 
-    public void RemoveMessageReceivedListener(UnityAction<string> onMessageReceived)
+    public void RemoveMessageReceivedListener(UnityAction<string> onReceived)
     {
-      this.onMessageReceived?.RemoveListener(onMessageReceived);
+      this.onMessageReceived?.RemoveListener(onReceived);
     }
 
     protected void OnMessageReceived(string message)
