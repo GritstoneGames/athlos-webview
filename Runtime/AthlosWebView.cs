@@ -146,16 +146,16 @@ window.__athlos_auth = () => {{
 
     public void AddOnPageLoadedListener(UnityAction<string> onLoaded)
     {
-      if (this.onPageLoaded == null)
+      if (onPageLoaded == null)
       {
-        this.onPageLoaded = new UnityEvent<string>();
+        onPageLoaded = new UnityEvent<string>();
       }
-      this.onPageLoaded.AddListener(onLoaded);
+      onPageLoaded.AddListener(onLoaded);
     }
 
     public void RemoveOnPageLoadedListener(UnityAction<string> onLoaded)
     {
-      this.onPageLoaded?.RemoveListener(onLoaded);
+      onPageLoaded?.RemoveListener(onLoaded);
     }
 
     protected void OnPageLoaded(string message)
@@ -165,16 +165,16 @@ window.__athlos_auth = () => {{
       
     public void AddMessageReceivedListener(UnityAction<string> onReceived)
     {
-      if (this.onMessageReceived == null)
+      if (onMessageReceived == null)
       {
-        this.onMessageReceived = new UnityEvent<string>();
+        onMessageReceived = new UnityEvent<string>();
       }
-      this.onMessageReceived.AddListener(onReceived);
+      onMessageReceived.AddListener(onReceived);
     }
 
     public void RemoveMessageReceivedListener(UnityAction<string> onReceived)
     {
-      this.onMessageReceived?.RemoveListener(onReceived);
+      onMessageReceived?.RemoveListener(onReceived);
     }
 
     protected void OnMessageReceived(string message)
