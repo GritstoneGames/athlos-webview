@@ -26,6 +26,8 @@ namespace Athlos.WebView
 {
   public class AthlosVuplexWebView : AthlosWebView
   {
+    private const int DefaultTargetFrameRate = 30;
+    
     [Header("Vuplex WebView")]
     [SerializeField] private BaseWebViewPrefab webView;
     [SerializeField] private bool enableConsoleLogging;
@@ -65,7 +67,7 @@ namespace Athlos.WebView
       string authenticationScript = AuthenticationScript;
       while (authenticationScript == null)
       {
-        await Task.Delay(1000 / Application.targetFrameRate);
+        await Task.Delay(1000 / DefaultTargetFrameRate);
         authenticationScript = AuthenticationScript;
       }
       webView.WebView.MessageEmitted += OnWebViewMessageEmitted;
