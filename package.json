@@ -30,5 +30,8 @@
       "description": "Athlos API & Gameface View compatibility. NOTE: This is under development and is not fully tested",
       "path": "Samples~/Gameface"
     }
-  ]
+  ],
+  "dependencies": {
+    "gg.athlos.common": "https://bitbucket.org/athlosgg/athlos-unity-common-api.git"
+  }
 }
