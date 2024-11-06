@@ -1,34 +1,19 @@
 {
   "name": "gg.athlos.webview",
   "version": "0.0.1",
-  "description": "A helpful plugin for integrating popular webviews for use with the Athlos service. Import a sample for an officially supported webview and customise as necessary.",
-  "displayName": "Athlos WebView API",
-  "author": {
-    "url": "http://gg.athlos",
-    "name": "Athlos"
+  "description": "Webview plugin for Athlos",
+  "displayName": "Athlos WebView",
+  "unity": "2022.3",
+  "author":{
+    "url": "https://gritstone.games",
+    "name": "Gritstone Games"
   },
-  "unity": "2021.3",
-  "changelogUrl": "https://gg.athlos/changelog.html",
-  "documentationUrl": "https://athlos.readme.io/docs",
-  "license": "See LICENSE.md",
-  "licenseUrl": "https://gg.athlos/license.html",
-  "samples": [
-    {
-      "displayName": "Gree",
-      "description": "Athlos API & Gree WebView compatibility",
-      "path": "Samples~/Gree"
-    },    
+  "documentationUrl": "https://athlos.readme.io/docs/welcome",
+  "samples":[
     {
       "displayName": "Vuplex",
-      "description": "Athlos API & Vuplex WebView compatibility",
+      "description": "Vuplex webview plugin",
       "path": "Samples~/Vuplex"
-    }
-  ],
-  "_ignoreSamples": [
-  	{
-      "displayName": "Gameface (Experimental)",
-      "description": "Athlos API & Gameface View compatibility. NOTE: This is under development and is not fully tested",
-      "path": "Samples~/Gameface"
     }
   ]
 }
