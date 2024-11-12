@@ -11,6 +11,11 @@
   "documentationUrl": "https://athlos.readme.io/docs/welcome",
   "samples":[
     {
+      "displayName": "Gree",
+      "description": "Gree webview plugin",
+      "path": "Samples~/Gree"
+    },
+    {
       "displayName": "Vuplex",
       "description": "Vuplex webview plugin",
       "path": "Samples~/Vuplex"
