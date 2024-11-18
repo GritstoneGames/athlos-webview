@@ -19,6 +19,7 @@ provided implementations for the more popular webviews or extend this behaviour 
   **Name** `package.openupm.com`<br>
   **URL** `https://package.openupm.com`<br>
   **Scope(s)** `gg.athlos`
+  
 4. Click `Save` or `Apply`
 5. Within Unity open `Window` &rarr; `Package Manager`
 6. Click the `+` button in the Package Manager and select `Add package by name...`
