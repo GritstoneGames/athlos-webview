@@ -11,23 +11,6 @@ authentication.
 provided implementations for the more popular webviews or extend this behaviour to implement your own.  
     - **Environment.cs**<br>Enum to help determine which environment of your tenant to address
 
-# Installation Instructions
-
-1. Within Unity open `Edit` &rarr; `Project Settings...`
-2. Within the Project Settings window select `Package Manager`
-3. Add a new Scoped Registry (or edit the existing OpenUPM entry)<br>
-  **Name** `package.openupm.com`<br>
-  **URL** `https://package.openupm.com`<br>
-  **Scope(s)** `gg.athlos`
-  
-4. Click `Save` or `Apply`
-5. Within Unity open `Window` &rarr; `Package Manager`
-6. Click the `+` button in the Package Manager and select `Add package by name...`
-7. Enter the following name: `gg.athlos.webview`
-8. Click `Add`
-
-The package will install itself into your Packages folder under Gritstone Games Ltd.
-
 # Requirements
 
 This package is compatible with Unity 2022.3 and later. Other versions may function but are not tested.
