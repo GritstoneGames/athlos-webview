@@ -5,11 +5,11 @@ The Athlos Unity Webview SDK helps connect your Unity project to Athlos via an e
 # Package Contents
 
 - Runtime
-  - **Athlos.cs**<br>A singleton behaviour that provides application wide access to Athlos, handling tenants and 
+    - **Athlos.cs**<br>A singleton behaviour that provides application wide access to Athlos, handling tenants and 
 authentication.
-  - **AthlosWebView.cs**<br>Base abstract class for all webview implementations. You can either use one of the already 
+    - **AthlosWebView.cs**<br>Base abstract class for all webview implementations. You can either use one of the already 
 provided implementations for the more popular webviews or extend this behaviour to implement your own.  
-  - **Environment.cs**<br>Enum to help determine which environment of your tenant to address
+    - **Environment.cs**<br>Enum to help determine which environment of your tenant to address
 
 # Installation Instructions
 
@@ -17,6 +17,7 @@ provided implementations for the more popular webviews or extend this behaviour 
 2. Click the `+` button in the Package Manager and select `Git Url`
 3. Enter the following URL: `https://bitbucket.org/athlosgg/athlos-unity-webview.git`
 4. Click `Import`
+
 The package will install itself into your Packages folder under Gritstone Games Ltd.
 
 # Requirements
@@ -26,6 +27,7 @@ This package is compatible with Unity 2022.3 and later. Other versions may funct
 # Workflows
 
 There are 3 typical steps in using this package:
+
 1. Set up the Athlos Tenant and Environment
 2. Implement authentication with Athlos
 3. Implement an Athlos compatible webview
