@@ -13,10 +13,17 @@ provided implementations for the more popular webviews or extend this behaviour 
 
 # Installation Instructions
 
-1. Within Unity open `Window` &rarr; `Package Manager`
-2. Click the `+` button in the Package Manager and select `Git Url`
-3. Enter the following URL: `https://bitbucket.org/athlosgg/athlos-unity-webview.git`
-4. Click `Import`
+1. Within Unity open `Edit` &rarr; `Project Settings...`
+2. Within the Project Settings window select `Package Manager`
+3. Add a new Scoped Registry (or edit the existing OpenUPM entry)<br>
+  **Name** `package.openupm.com`<br>
+  **URL** `https://package.openupm.com`<br>
+  **Scope(s)** `gg.athlos`
+4. Click `Save` or `Apply`
+5. Within Unity open `Window` &rarr; `Package Manager`
+6. Click the `+` button in the Package Manager and select `Add package by name...`
+7. Enter the following name: `gg.athlos.webview`
+8. Click `Add`
 
 The package will install itself into your Packages folder under Gritstone Games Ltd.
 
@@ -62,6 +69,7 @@ In this example we will use Athlos REST API to login a player with their e-mail 
 
 > **Note:** This is not the recommended way to authenticate a user; it is merely used for demonstration purposes. You would
 > instead return a JWT from your own REST API or server function.
+
 ```c#
 [Serializable]
 struct LoginBody //Stub POST body for login via email and password
@@ -168,6 +176,7 @@ If you think there is a popular webview that isn't supported please contact us. 
 Implementing your own Athlos Webview component is simply a case of deriving from `AthlosWebView`. When doing so you must 
 set the initial address to `InitialURL` and using whatever means available to pass the `AuthenticationScript` as a script 
 when the webview starts. Below is an example of how we implement it for a Vuplex webview:
+
 > **Note:** you should use the officially supported Vuplex component in reality
 
 ```c#
