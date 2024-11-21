@@ -1,6 +1,6 @@
 {
   "name": "gg.athlos.webview",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Present Athlos in your game via an embdedded webview.",
   "displayName": "Athlos WebView",
   "unity": "2022.3",
