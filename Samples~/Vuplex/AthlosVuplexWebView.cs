@@ -23,6 +23,14 @@ namespace Athlos.WebView
       _vuplexWebView.Initialized -= OnVuplexWebViewInitialized;
       _vuplexWebView.WebView.PageLoadScripts.Add(AuthenticationScript);
     }
+    
+    protected override void OnInitialURLChanged()
+    {
+      if (_vuplexWebView != null)
+      {
+        _vuplexWebView.InitialUrl = InitialURL;
+      }
+    }
   }
 }
 #endif

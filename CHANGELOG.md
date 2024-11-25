@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.0] - 2024-11-25
 
+- Added a function to allow developers to open Athlos at a specific item
+
 ## [1.1.0] - 2024-11-21
 
 ### Added

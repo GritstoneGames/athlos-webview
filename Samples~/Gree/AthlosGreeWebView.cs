@@ -187,5 +187,7 @@ namespace Athlos.WebView
       }
       _loaded?.Invoke(msg);
     }
+
+    protected override void OnInitialURLChanged() { }
   }
 }
